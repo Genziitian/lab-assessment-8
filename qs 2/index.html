@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Portal</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 30px; background-color: #f0f4f8; }
+        .feedback-form { max-width: 500px; background: white; padding: 25px; margin: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #0056b3; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+        input[type="text"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        textarea { height: 100px; resize: vertical; }
+        button { width: 100%; background-color: #0056b3; color: white; border: none; padding: 12px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #004494; }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-form">
+        <h2>Student Feedback System</h2>
+        <form onsubmit="alert('Thank you for your feedback!'); return false;">
+            <div class="form-group">
+                <label>Course Name:</label>
+                <input type="text" placeholder="e.g., Agile Development & DevOps" required>
+            </div>
+            <div class="form-group">
+                <label>Faculty Name:</label>
+                <input type="text" placeholder="Enter Faculty Name" required>
+            </div>
+            <div class="form-group">
+                <label>Student Name:</label>
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label>Register Number:</label>
+                <input type="text" placeholder="e.g., 21BCE0000" required>
+            </div>
+            <div class="form-group">
+                <label>Department:</label>
+                <input type="text" placeholder="e.g., SCOPE" required>
+            </div>
+            <div class="form-group">
+                <label>Rating (1 to 5):</label>
+                <select required>
+                    <option value="">Select Rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Average</option>
+                    <option value="1">1 - Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Feedback / Comments:</label>
+                <textarea placeholder="Write your comments here..." required></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+</body>
+</html>

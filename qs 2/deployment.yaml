@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-deployment
+  labels:
+    app: feedback
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: feedback
+  template:
+    metadata:
+      labels:
+        app: feedback
+    spec:
+      containers:
+      - name: feedback-container
+        image: sriram1108/feedbackapp:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feedback-service
+spec:
+  type: NodePort
+  selector:
+    app: feedback
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008
