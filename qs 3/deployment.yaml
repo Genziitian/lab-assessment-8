@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: placement-deployment
+  labels:
+    app: placement
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: placement
+  template:
+    metadata:
+      labels:
+        app: placement
+    spec:
+      containers:
+      - name: placement-container
+        image: sriram1108/placementapp:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: placement-service
+spec:
+  type: NodePort
+  selector:
+    app: placement
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30009
